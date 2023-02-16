@@ -13,7 +13,7 @@
                         .then((resp) => resp.json())
                         .then(function (data) {   
                             const poetry = data[0].lines                        
-                            console.log("Poema : "+titlePoetry)
+                            console.log("Poema : "+titlePoetry.value)
                             console.log(poetry)//Muestra solo las lineas del poema
                         })
 
