@@ -4,6 +4,9 @@
         const formData = document.getElementById("formData");       
         //const titlePoetry=document.getElementById("inPoema");
         const inAutor = document.getElementById("inAutor");
+        //Elementos mostrados
+        const list = document.getElementById("list");
+        var item = document.createElement("il");
 
 
         //Endpoints
@@ -22,8 +25,10 @@
           fetch(urlAuthorTitles+inAutor.value)//Concateno el autor capturado por el formulario
                         .then((resp) => resp.json())
                         .then(function (data) {   
-                            const obras = data
-                            //console.log("Poema : "+titlePoetry.value)
+                            //const obras = data[0].title //Regresa solo el titulo de la primera obra del arreglo de obras
+                            data.forEach(item=>{
+                              console.log(item.title);
+                            })
                             console.log(obras)//Muestra solo las lineas del poema
                         })
 
