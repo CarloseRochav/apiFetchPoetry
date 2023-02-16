@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola Kevin Alexis</h1>
+
+   <!--APi Fetch JavaScript--> 
+    <script>                       
+        const urlPoema="https://poetrydb.org/title/Ozymandias/lines.json"
+        const urlAutores="https://poetrydb.org/author"
+        const urlAuthorTitles="https://poetrydb.org/author/Wilde" //Obras del artista
+        const urlAuthorPoetry="https://poetrydb.org/title/Charmides/lines.json" //Titulo en especifico
+
+                fetch(urlAuthorPoetry)
+                        .then((resp) => resp.json())
+                        .then(function (data) {
+                            let poema = data.results;
+                            console.log(poema)
+                        })
+
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+    </script>
+
+</body>
+</html>
