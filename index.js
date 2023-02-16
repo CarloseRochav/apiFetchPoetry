@@ -6,7 +6,7 @@
         const inAutor = document.getElementById("inAutor");
         //Elementos mostrados
         const list = document.getElementById("list");
-        var item = document.createElement("il");
+        //var itemLi = document.createElement("li");
 
 
         //Endpoints
@@ -27,9 +27,12 @@
                         .then(function (data) {   
                             //const obras = data[0].title //Regresa solo el titulo de la primera obra del arreglo de obras
                             data.forEach(item=>{
+                              var li = document.createElement("li");
+                              li.appendChild(document.createTextNode(item.title))
+                              list.appendChild(li)
                               console.log(item.title);
                             })
-                            console.log(obras)//Muestra solo las lineas del poema
+                            
                         })
 
                         .catch(function (error) {
