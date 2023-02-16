@@ -9,25 +9,14 @@
 </head>
 <body>
     <h1>Hola Kevin Alexis</h1>
+    <form action="#POST">
+        <label>Poema</label>
+        <input id="inPoema" type="text" placeholder="Ingresa el nombre">
+        <button type="submit">Buscar</button>
+    </form>
+
 
    <!--APi Fetch JavaScript--> 
-    <script>                       
-        const urlPoema="https://poetrydb.org/title/Ozymandias/lines.json"
-        const urlAutores="https://poetrydb.org/author"
-        const urlAuthorTitles="https://poetrydb.org/author/Wilde" //Obras del artista
-        const urlAuthorPoetry="https://poetrydb.org/title/Charmides/lines.json" //Titulo en especifico
-
-                fetch(urlAuthorPoetry)
-                        .then((resp) => resp.json())
-                        .then(function (data) {
-                            let poema = data.results;
-                            console.log(poema)
-                        })
-
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-    </script>
-
+    <script src="./index.js"></script>
 </body>
 </html>
