@@ -6,19 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>        
+
+            .container{
+                display: flex;
+                justify-content: center;
+                
+            }
+            .block{
+                margin: 10px 150px 10px 10px;
+            }
+
+
+    </style>
 </head>
 <body>
-    <h1>Poemas de tus autores favoritos</h1>
+    <h2>Poemas de tus autores favoritos</h2>
+
+    <div class="container">
+    
+    <div class="block">
     <form action="" id="formData">
         <label>Autor</label>
-        <input id="inAutor" type="text" placeholder="Ingresa el nombre">
-        <button type="submit">Buscar</button>
+        <input id="inAutor" type="text" placeholder="Apellido para mejor precision">
+        <input type="submit" value="Buscar"/><!--Input instead of button-->
     </form>
 
-    <ol id="list">
-        <h4>Elementos</h3>
-    </ol>
+    <h4>Elementos</h3> 
+    <ol id="list"></ol>
+    
+    </div class="block">  
+        <div>
+        <h5>Autores Disponibles</h5>
+        <div style="height:300px;width:250px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;"
+        class="block">
+            
+            <ol id="listAuthor">
+
+            </ol>
+            </div>
+
+        </div>
+    
+    </div>
+
+
+
    <!--APi Fetch JavaScript--> 
     <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
