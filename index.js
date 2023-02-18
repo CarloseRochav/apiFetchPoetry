@@ -44,7 +44,6 @@
                             }
                             console.log("Error : "+error);
                         });
-
         })
 
         //Mostrar todos los autores disponibles
