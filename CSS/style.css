@@ -1,0 +1,29 @@
+  
+    .container{
+                display: flex;
+                justify-content: center;
+                margin-top: 3rem;
+            }
+    .block{
+                margin: 10px 150px 10px 10px;
+            }
+
+    h2 {
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                margin: 30rem;
+            }
+            .footer {
+                padding: 1rem 0;
+                margin-top: 2rem;
+            }
+            .footer__texto {
+                
+                text-align: center;
+                font-size: 2.2rem;
+            }
+            
+
+   
+
+    
