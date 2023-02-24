@@ -23,10 +23,13 @@ const firebaseConfig = {
   
     var name = getElementVal("name");
     var email = getElementVal("Email");
+    var address = getElementVal("address")
     var coffe = getElementVal("coffe");
+    var size = getElementVal("size")
+    var milk = getElementVal("milk")    
     var msgContent = getElementVal("msgContent");
   
-    saveMessages(name, email, coffe, msgContent);
+    saveMessages(name, email,address, coffe,size,milk, msgContent);
   
     //   enable alert
     document.querySelector(".alert").style.display = "block";
@@ -54,4 +57,8 @@ const firebaseConfig = {
   const getElementVal = (id) => {
     return document.getElementById(id).value;
   };
+  
+
+  //Get elements
+
   

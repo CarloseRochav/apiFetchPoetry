@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="container">
-        <form action="" id="contactForm">
+        
+        <form action="" id="contactForm" class="child">
             <div class="alert">Mensaje Enviado</div>
 
             <div class="inputBox">
@@ -17,11 +18,23 @@
             </div>
 
             <div class="inputBox">
-                <input type="email" id="Email" placeholder="Email....." />
+                <input type="text" id="address" placeholder="Direccion...." />
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="email" placeholder="Correo....." />
             </div>
             
             <div class="inputBox">
-                <input type="text" id="coffe" placeholder="Tipo de cafe....." />
+                <input type="text" id="coffe" placeholder="Cafe...Latte, americano, frappe" />
+            </div>
+
+            <div class="inputBox">
+                <input type="text" id="size" placeholder="Tamaño ; 12oz, 16oz o 20oz" />
+            </div>
+
+            <div class="inputBox">
+                <input type="text" id="milk" placeholder="Leche...deslactosada, entera, avena, alemdra, ninguna" />
             </div>
 
             <div class="inputBox">
@@ -32,7 +45,18 @@
                 <button type="submit">Enviar</button>
 
             </div>
-        </form>
+        </form>    
+
+        <div class="child">
+            <div>
+                <h3>Elementos</h3>
+                <div class="child-elements">
+                    <ol id="list">
+
+                    </ol>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
