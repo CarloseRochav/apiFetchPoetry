@@ -16,7 +16,6 @@ const db = firebase.firestore();
 
 //Widgets
 const formOrder = document.getElementById("contactForm")
-const list =document.getElementById("list");
 const p = document.createElement("p");
   
 
@@ -52,26 +51,47 @@ const p = document.createElement("p");
   const registros =(cb)=> db.collection("orders").onSnapshot(cb)
 
   window.addEventListener('DOMContentLoaded', async (e) => {
-    getTasks((querySnapshot) => {
-        //taskToDo.innerHTML = '';        
-
-
+    registros((querySnapshot) => {
+        
 
         querySnapshot.forEach(doc => {
-            console.log(doc.data());
-            const if_url = `<a href="${doc.data().url}">URL de tarea</a>` 
-            taskToDo.innerHTML += `
-                <div>
-                    <h4>${doc.data().name}</h4>
-                    <p>${doc.data().description}</p>
-                    ${doc.data().url ? 
-                        if_url
-                        : ''
-                    }
-                </div>           `
+            console.log(doc.data());           
+            
+
+            const table1 =document.getElementById("Table1");
+
+            var row = table1.insertRow(-1);
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+
+            //Agregamos la informacion a cada colummna
+            cell1.innerHTML=doc.data().name
+            cell2.innerHTML=doc.data().address
+            cell3.innerHTML=doc.data().email
+            cell4.innerHTML=doc.data().coffe
+            cell5.innerHTML=doc.data().size
+            cell6.innerHTML=doc.data().milk
+            //cell7.innerHTML=`<button type="button" onClick="deleteR(${doc.data().})">Eliminar</button>`;
+            cell7.innerHTML=doc.data().doc
         });
     });
 });
+
+
+function deleteR(id){
+  db.ref('orders/' + id).set(null).then(() => {
+    read();
+  }).then(()=>{
+     swal("Listo!", "Eliminado correctamente", "success");
+  });
+}
+
 
   
   
