@@ -1,35 +1,39 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBB0LTgqZWl-XLEd1xtqoo_PC5Rdn8IhnM",
-    authDomain: "jsfirebase-259e0.firebaseapp.com",
-    databaseURL: "https://jsfirebase-259e0-default-rtdb.firebaseio.com",
-    projectId: "jsfirebase-259e0",
-    storageBucket: "jsfirebase-259e0.appspot.com",
-    messagingSenderId: "191181941604",
-    appId: "1:191181941604:web:8f36c7fe9b72cf01166871",
-    measurementId: "G-2REJ3VLDT4"
-  };
-  
+  apiKey: "AIzaSyCoQtyAKENYfPNpfiznJUvwdJ0Si5LfjGY",
+  authDomain: "coffe-bar-c2f9d.firebaseapp.com",
+  databaseURL: "https://coffe-bar-c2f9d-default-rtdb.firebaseio.com",
+  projectId: "coffe-bar-c2f9d",
+  storageBucket: "coffe-bar-c2f9d.appspot.com",
+  messagingSenderId: "212093368410",
+  appId: "1:212093368410:web:e590e5dfa2c151f0bd4063"
+};
   
   // initialize firebase
   firebase.initializeApp(firebaseConfig);
   
-  // reference your database
-  var contactFormDB = firebase.database().ref("contactForm");
+  // getDataForm.js
+const db = firebase.firestore();
+
+//Widgets
+const formOrder = document.getElementById("contactForm")
+const list =document.getElementById("list");
+const p = document.createElement("p");
   
-  document.getElementById("contactForm").addEventListener("submit", submitForm);
+
+  formOrder.addEventListener("submit",(e)=>{
+
+    e.preventDefault();    
+
+    //Inputs Values
+    var name = document.getElementById("name").value
+    var email = document.getElementById("email").value
+    var address = document.getElementById("address").value
+    var coffe = document.getElementById("coffe").value
+    var size = document.getElementById("size").value
+    var milk = document.getElementById("milk").value
+    var msgContent = document.getElementById("msgContent").value
   
-  function submitForm(e) {
-    e.preventDefault();
-  
-    var name = getElementVal("name");
-    var email = getElementVal("Email");
-    var address = getElementVal("address")
-    var coffe = getElementVal("coffe");
-    var size = getElementVal("size")
-    var milk = getElementVal("milk")    
-    var msgContent = getElementVal("msgContent");
-  
-    saveMessages(name, email,address, coffe,size,milk, msgContent);
+    createOrder(name, email,address, coffe,size,milk, msgContent);
   
     //   enable alert
     document.querySelector(".alert").style.display = "block";
@@ -41,23 +45,62 @@ const firebaseConfig = {
   
     //   reset the form
     document.getElementById("contactForm").reset();
-  }
+
+  });
   
-  const saveMessages = (name, email, coffe, msgContent) => {
-    var newContactForm = contactFormDB.push();
-  
-    newContactForm.set({
-      name: name,
-      email: email,
-      coffe:coffe,
-      msgContent: msgContent,
+
+  const registros =(cb)=> db.collection("orders").onSnapshot(cb)
+
+  window.addEventListener('DOMContentLoaded', async (e) => {
+    getTasks((querySnapshot) => {
+        //taskToDo.innerHTML = '';        
+
+
+
+        querySnapshot.forEach(doc => {
+            console.log(doc.data());
+            const if_url = `<a href="${doc.data().url}">URL de tarea</a>` 
+            taskToDo.innerHTML += `
+                <div>
+                    <h4>${doc.data().name}</h4>
+                    <p>${doc.data().description}</p>
+                    ${doc.data().url ? 
+                        if_url
+                        : ''
+                    }
+                </div>           `
+        });
     });
-  };
+});
+
   
-  const getElementVal = (id) => {
-    return document.getElementById(id).value;
-  };
   
+
+  
+
+  
+  
+
+
+  //Funtion to create order
+  const createOrder = (name, email,address, coffe,size,milk, msgContent) => {
+    db.collection('orders').doc().set({
+      name, 
+      email,
+      address, 
+      coffe,
+      size,
+      milk, 
+      msgContent
+    })
+}
+
+  
+  // const getElementVal = (id) => {
+  //   return document.getElementById(id).value;
+  // };
+  
+
 
   //Get elements
 
